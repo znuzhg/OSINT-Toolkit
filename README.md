@@ -2,15 +2,11 @@
 # 🛰️ OSINT Toolkit  
 *Kapsamlı Açık Kaynak İstihbarat (OSINT) Araç Koleksiyonu*
 
-<p align="center">
-  <img src="https://img.shields.io/badge/OSINT-Toolkit-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Status-Active-green?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" />
-</p>
-
-Bu depo, siber güvenlik öğrencileri, analistler ve red team/pentest meraklıları için hazırlanmış **modüler bir OSINT araç koleksiyonudur**.  
-Amaç, keşif, sosyal medya analizi, metadata inceleme, veri sızıntısı araştırmaları ve tehdit istihbaratı süreçlerinde kullanılan en popüler araçları **tek bir merkezi toolkit altında toplamak** ve düzenli bir yapı sunmaktır.
-
+Bu depo, siber güvenlik öğrencileri, analistler ve red team/pentest meraklıları için hazırlanmış
+**modüler bir OSINT araç koleksiyonudur**.  
+Amaç, keşif, sosyal medya analizi, metadata inceleme, veri sızıntısı araştırmaları ve tehdit istihbaratı süreçlerinde kullanılan en popüler araçları
+**tek bir merkezi toolkit altında toplamak** ve düzenli bir yapı sunmaktır.
+```
 ---
 
 # 📂 Klasör Yapısı
@@ -157,7 +153,7 @@ Pull-request'ler memnuniyetle karşılanır! 🚀
 ---
 
 # ⭐ Destek
-
+```text
 Eğer bu repo hoşunuza gittiyse bir ⭐ bırakmayı unutmayın — OSINT topluluğuna katkı sağlamış olursunuz.
 
 ```
