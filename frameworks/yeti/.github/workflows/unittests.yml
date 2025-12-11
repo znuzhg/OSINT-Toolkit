@@ -1,0 +1,48 @@
+name: Unit tests
+
+on: [pull_request]
+
+jobs:
+
+  unittest:
+    runs-on: ubuntu-latest
+    env:
+      YETI_REDIS_HOST: localhost
+      YETI_REDIS_PORT: 6379
+      YETI_REDIS_DATABASE: 0
+      YETI_ARANGODB_HOST: localhost
+      YETI_ARANGODB_PORT: 8529
+      YETI_ARANGODB_DATABASE: yeti
+      YETI_ARANGODB_USERNAME: root
+      YETI_ARANGODB_PASSWORD: ""
+      YETI_AUTH_SECRET_KEY: SECRET
+      YETI_AUTH_ALGORITHM: HS256
+      YETI_AUTH_ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      YETI_AUTH_BROWSER_TOKEN_EXPIRE_MINUTES: 43200
+      YETI_AUTH_ENABLED: False
+      YETI_SYSTEM_PLUGINS_PATH: ./plugins
+      YETI_SYSTEM_AUDIT_LOGFILE: /tmp/yeti_audit.log
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - run:
+        sudo apt-get update && sudo apt-get install -y python3-pip && sudo pip3 install uv
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Python dependencies
+      run: uv sync --group dev
+    - name: Copy dummy config file
+      run: cp yeti.conf.sample yeti.conf
+    - name: Start redis & arangodb conainers
+      run: docker compose -f extras/docker/dev/docker-compose.yaml up -d redis arangodb
+    - name: Test with unittest (schemas)
+      run: uv run python -m unittest discover -s tests/schemas -p '*.py'
+    - name: Test with unittest (apiv2)
+      run: uv run python -m unittest discover -s tests/apiv2 -p '*.py'
+    - name: Test with unittest (core_tests)
+      run: uv run python -m unittest discover -s tests/core_tests -p '*.py'

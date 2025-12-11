@@ -1,0 +1,69 @@
+# Kapittel 3: Om sensorer og metadata
+
+Dette innebefatter sensorer som KameraHullet gjør bruk av på telefonen og J3M-formatet (JSON Mobile Media Metadata) vi bruker for å lagre dataen.
+
+## J3M-eksempelfil
+
+Nedenfor finner du en markert versjon av JSON-dataen som er å finne i en typisk J3M-forpakning.
+
+The "asset_path" represents where the file was original stored on the InformaCam app's encrypted internal storage. This will be rarely used, but could be helpful in extreme situations where inspection of the capture device is necessary:
+> {"asset_path": "submissions/45454ac1ade36ebec3749e8dc2aedc4b", 
+
+"Genealogy" (arverekkefølge)-merkelappen inneholder data om medie-filas opphav i all enkelhet. "hashes" er en MD5-sjekksum av alle pikselverdiene til bildet eller video-forløpet. "createdOnDevice" er offentlig OpenPGP nøkkelfingeravtrykk for brukeren/programmet. "dateCreated" er en lagret tidspunktsverdi som skriver seg til når media-opptaket fant sted.
+
+>"genealogy": {"localMediaPath": "/e61756a62a37535b77b0183318c79d26a2e0bdf0", "hashes": ["9230de4b067b2f14afcaa41d23b30a09"], "j3m_version": "J3M version 1.0", "createdOnDevice": >"694db2c3ecc07ac07f63e323f7b9a0cefada94cf", "dateCreated": 1386690725995}, 
+
+file_name er navnet på den lagrede J3M-fila på telefonens internminne
+>"file_name": "kxerFDrNCHiNOxawWUgYEbknbC.j3m", 
+
+"public_hash" er en kryptografisk SHA-1 -sjekksum som kombinerer brukerens nøkkelfingeravtrykk og MD5 media-sjekksummen nevnt ovenfor. Dette brukes som søkbar offentlig symbol-identifikator for media-fila.
+>"public_hash": "b840cbfd806865fff8cc34078540224cfe804ae5",
+
+Dataen bak "Intent" representerer hvem som gjorde opptaket, deres PGP-nøkkelfingeravtrykk, og hvem medie-fila var ment for, sammen med hvis noen, overleveringsinformasjon. Informasjonen "intendedDestination" kommer fra "trusted destination" eller ICTD-konfigurasjonsfiler, som er lagret i programmet.
+> "intent": {"alias": "ai whiteness", "ownershipType": 400, "pgpKeyFingerprint": "694db2c3ecc07ac07f63e323f7b9a0cefada94cf", "intendedDestination": "InformaCam Testbed"},
+> "date_admitted": 1386726920279.5662, "_id": "86ae352e68328c06de7840f4cb6be809",
+
+The "data" section is where the sensor metadata logs are stored. It is an array of timestamped sensorCapture items
+> "data": {
+>"sensorCapture": [
+
+Dette er en orienterings-hendelse, inneholdende azimuth, slingring og giring, både i rå-format og "corrected" (korrigert) basert på brukerens orientering når de holder telefonen.
+>{"timestamp": 1386690720753, "captureType": 271, "sensorPlayback": {"azimuthCorrected": -1.84727144241333, "pitchCorrected": 0.017154498025774956, "azimuth": 43.07861328125, "pitch": >-18.8385009765625, "roll": -132.7789306640625, "rollCorrected": -0.12050031125545502}}, 
+
+Dette er en lysmålingsverdi
+>{"timestamp": 1386690734267, "captureType": 271, "sensorPlayback": {"lightMeterValue": 13}}, 
+
+Dette er en kombinert hendelse med lysmetering og trykkdata, både i rå og justert form, basert på telefonens indikerte lokale hevning.
+>{"timestamp": 1386690729261, "captureType": 271, "sensorPlayback": {"pressureHPAOrMBAR": 1007.3463134765625, "lightMeterValue": 10, "pressureAltitude": 49.26783752441406}},
+
+"visibleWifiNetworks" innhenter nettverksnavn, frekvens, styrke og MAC-adresse for Wi-Fi nettverk innen rekkevidde.
+>{"timestamp": 1386690729939, "captureType": 271, "sensorPlayback": {"visibleWifiNetworks": [{"bssid": "28:c6:8e:ba:ea:dc", "wifiFreq": 5220, "wifiLevel": -93, "bt_hash": >"afbf1e7ffc07f6b4471e34f8470f5fde947a8f2b", "ssid": "cloudcity5ghz"}, {"bssid": "1c:af:f7:d8:db:61", "wifiFreq": 2462, "wifiLevel": -88, "bt_hash": >"9c1cb7186bea393589ac3a591052f91da423205e", "ssid": "Cloud10"}, {"bssid": "28:c6:8e:ba:ea:da", "wifiFreq": 2437, "wifiLevel": -61, "bt_hash": "7b3b34fe541048f0e0800f1b788dc44cfdf6a59d", >"ssid": "cloudcity"},... 
+
+Dette er GPS-posisjonsdata, visning av høyde og breddegrad, gjeldende slingringsmonn på sensoren, avhengig om den baserer seg på satelitt, Wi-Fi, mobilmaster osv.
+> {"timestamp": 1386690719706, "captureType": 271, "sensorPlayback": {"gps_coords": [-71.1253508, 42.3286856], "gps_accuracy": "32.119"}}, 
+
+Aksellerometer som viser bevegelse i X, Y og Z-aksen.
+>{"timestamp": 1386690721758, "captureType": 271, "sensorPlayback": {"acc_z": 9.188077926635742, "acc_y": 2.7202823162078857, "acc_x": -1.9511220455169678}},
+
+This is a telephony event, showing both any bluetooth devices noticed in the area, and information about the cellular network tower the smartphone is currently registered with. If the device is a wifi only device, or is not using a SIM card, this data will simply be omitted. The bluetooth device address does NOT display the name of the actual device MAC address, but instead shows a one-way hash value. This was an attempt to preserve some privacy for individuals who might be in the area.
+>{"timestamp": 1386690719714, "captureType": 271, "sensorPlayback": {"bluetoothDeviceAddress": "5d9d203488950ff20c07b6dbfe9a8b8ddabafc6c", "LAC": "36493", "MCC": "310260", >"bluetoothDeviceName": "Nexus 4", "cellTowerId": "79211356"}}, 
+
+Etter sensordata, viser J3M vanlig "EXIF" lignende informasjon fra opptaksenheten:
+> "exif": {"orientation": 0, "focalLength": -1, "timestamp": "2013:12:10 10:51:48", "make": "LGE", "flash": -1, "height": 960, "width": 1280, "iso": "100", "location": [-71.1250228881836, >42.32872772216797], "duration": 0, "model": "Nexus 4", "exposure": "0.033", "whiteBalance": -1, "aperture": "2.7"}, 
+
+Til slutt kommer alle brukermarkeringene basert på Open Data Kit-skjema, vedlagt som en del av "Trusted Destination"-filen, som vist her:
+
+Skjemadefinisjonen i bruk er indikert, og en markering fri for basiske verdier er vist her:
+>"userAppendedData": [{"associatedForms": [{"path": "/forms/493dde68c49e6b99556186a3e776d705.xml", "namespace": "iWitness Free Text Annotations", "id": "234d025ee64976d27e1d2305f80824bc", >"answerData": {"iW_free_text": "watch out for icy sidewalks and roads"}}], "timestamp": 1386690794797, "id": "cdb7c22265121160dec5c0598263f58c"}, {"associatedForms": [{"path": >"/forms/493dde68c49e6b99556186a3e776d705.xml", "namespace": "iWitness Free Text Annotations", "id": "b63a2a65fc91dd9744d6cd5cea5cb28d", "answerData": {"iW_free_text": "this tree might >fall down"}}, 
+
+Hvis en markering er plassert på et spesifikt X-Y-koordinat i bilde, eller X-Y+tidsvindu for video, er også den informasjonen med:
+>{"path": "/forms/46b9f8e70113ae0f39ae26338c0dc433.xml", "namespace": "iWitness v 1.0", "id": "fae0900eec13baefce4f98b895b80405", 
+>"answerData": {"iW_individual_identifiers": "Victim"}}], "timestamp": 1386690798758, "regionBounds": {"top": 224, "displayLeft": 415, "height": 118, "width": -37, "displayWidth": 115, >"startTime": -1, "displayTop": 224, "displayHeight": 118, "endTime": -1, "left": 263}, "id": "1e9d35bed92b8fdfe46b251afb3227f2", "index": 0}, {"associatedForms": [{"path": >"/forms/493dde68c49e6b99556186a3e776d705.xml", "namespace": "iWitness Free Text Annotations", "id": "b63a2a65fc91dd9744d6cd5cea5cb28d", "answerData": {"iW_free_text": "this tree might >fall down"}}, {"path": "/forms/46b9f8e70113ae0f39ae26338c0dc433.xml", "namespace": "iWitness v 1.0", "id": "fae0900eec13baefce4f98b895b80405", "answerData": {"iW_individual_identifiers": >"Victim"}}], "timestamp": 1386690798758, "regionBounds": {"top": 224, "displayLeft": 415, "height": 118, "width": -37, "displayWidth": 115, "startTime": -1, "displayTop": 224, >"displayHeight": 118, "endTime": -1, "left": 263}, "id": "1e9d35bed92b8fdfe46b251afb3227f2", "index": 0}]}}
+
+### Umulige verdier
+
+For å oversette verdiene fra JSON til databasen på en enkel måte, må gitte verdier være noe annet enn null, eller NaN, men må fremdeles være gitt verdier som samsvarer med forventet type. Følgende notater har henholdsvis med spesifikke verdier å gjøre:
+
+* Mobilmast-ID, hvis kjent, vil bli loggført som -1.
+* Plasseringsdata, hvis kjent vil bli loggførst som [0.0, 0.0}. Dette er en teknisk gyldig bredde og lengdegrad, men den burde anses som NaN. Merk at Android-klienten alltid oppgir posisjon med opp til 9 desimalers nøyaktighet; om en klient faktisk skulle befinne seg har, vil faktisk måleravlesning være i området 0.000000134.
+

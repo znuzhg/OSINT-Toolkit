@@ -1,0 +1,28 @@
+npm-debug.log
+node_modules/
+tmp/
+**/.vs
+**/.vscode
+!**/.vscode/tasks.json
+dist.crx
+dist.zip
+dist.pem
+
+.nyc_output
+coverage
+
+.DS_Store
+
+# local env files
+.env*
+
+out/
+build/
+dist/
+
+# wxt
+.output
+.wxt
+
+# typescript
+.tsbuildinfo

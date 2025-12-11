@@ -1,0 +1,22 @@
+{
+  "include": ["./*", "./src/**/*", "./tests/**/*", "./script/**/*", ".eslintrc.js"],
+  "files": ["src/generated/graphql.ts"],
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "es2020",
+    "lib": ["es2022"],
+    "strict": true,
+    "allowJs": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "typeRoots": ["node_modules/@types", "src/types"]
+  }
+}

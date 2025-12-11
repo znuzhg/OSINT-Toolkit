@@ -1,0 +1,42 @@
+# Kapittel 2: Kan dette stemme?
+
+## Kan dette stemme? Hvordan InformaCam forbedrer verifisering av mobil-mediafiler
+
+Det hagler med media fra verdens mobile enheter for bruk som bevismateriale fra betrodde kilder for journalister. WITNESS og Guardian-prosjektet jobber med å utarbeide en mekanisme, InformaCam, for å verifisere og sjekke gyldigheten til dette kildematerialet.
+
+Sent i fjor ble antivirus-pioneeren John McAfee arrestert i Guatemale etter å ha rømt fra sitt hjem i Belize der han var ettersøkt for å svare på spørsmål knyttet til mordet på sin nabo. McAfee's posisjon ble ved en feiltagelse utgitt gjennom innebygget metadata i iPhone-bildet publisert av journalistene som intervjuet han.
+
+Bilder tatt med mobiltelefoner inneholder ofte innebygget informasjon, kjent som metadata, som kan ta opp informasjon inkludert: kameratypen som tok bildet, dato og tidspunkt. De kan også inneholde informasjon som GPS-koordinater, hvilket kan brukes til å fastslå hvor et bilde eller video ble tatt. Noen ganger kan metadata oppgi informasjon som brukeren ikke ønsker å dele.
+
+Vi har trent menneskerettsaktivister om sikkerhetsrisikoene knyttet til metadata i digitale filer en stund nå. Å ta opp video med sensitiv informasjon kan skade dem det gjelder. Som motsvar har vi og våre partnere i Guardian-prosjektet laget KameraHullet, et program for mobiltelefoner som i tillegg til å fjerne metadata, også automatisk fanger opp og visker ut ansikter i videoer og bilder. For omtrent seks måneder siden introduserte YouTube lignende funksjonalitet.
+
+Facebook-bruker Gregory Michael delte dette falske bildet som viser en hai i kjølvannet av superstormen Sandy i New Jersey, USA
+Dog er det mange ganger da journalister og menneskerettighetsbeskyttere trenger å bevare mer informasjon istedenfor mindre, i den hensikt å forsikre at deres digitale filer holder mål senere som bevismateriale eller for arkivformål. Eller det kan hende de vil ha plasseringsdata, tilleggsinformasjon om hva de dekker, og muligheten til å kryptere det hele, i et tiltak for å hjelpe mediapublikasjoner med å tiltro og bekrefte innholdet. I en alder der digital billedmanipulasjon er allemannseie, har nyhetsbyråer bevisførselen på sin side når det gjelder å fastslå om media har blitt tuklet med eller ei.
+
+Syria er et slikt eksempel, der mobiltelefonvideo har blitt brukt i utstrakt grad for å dukumentere potensielle krigsforbrytelser sågar som å tjene som potensiell propaganda. Mer dagligdags scenarioer finnes i de fleste situasjoner, som det ufattelige bildet av  tornadoen i Alabama.
+
+For å imøtekomme de behovene har vi jobbet med KameraHullet, et mobilprogram som gir Android-enheter muligheten til å ta opp bilde og videoer, bygge inn geotemporær og annen metadata, signere digitalt med fingeravtrykk unikt for kameraets sensor, kryptere og sende de filene til noen de stoler på som har en sikker data-tjener. I tillegg til andre ting, bevares overrekkelseskjeden til mediafilene, noe som gjør det mer gangbart i rettssammenheng.
+
+Siden vi annonserte prosjektet, har vi jobbet med å forbedre funksjonaliteten på programmet og å bygge en sikker tjenerprototyp som lagrer og bekrefter overrekkelseskjeden til media-filene. Sammen med WITNESS, Guardian-prosjektet og våre partnere i International Bar Association, håper vi å ha et pilotprosjekt klart for testing i løpet av de neste månedene. Deretter er planen å lage en installasjonskandidat som lar hvem som helst enkelt sette opp sine egne pakkebrønner.
+
+Når en bruker kjører KameraHullet for første gang, går en veileder gjennom stegene for å lage et passord for programmet og hvordan man genererer en krypteringnøkkel basert på den unikt spesifikke informasjonen fra kamerasensoren. Siden hvert kamera har et unikt mønster med kamerastøy, er det mulig å lage et "fingeravtrykk" av dette. Denne nøkkelen brukes til å bekrefte at all media tatt opp med programmet som har blitt lastet opp til den sikre tjeneren, faktisk kommer fra dette kameraet.
+
+Når oppsettet er fullført, har brukeren valget om å ta et bilde eller skyte video. Under opptaksprosessen har KameraHullet kontinuerlig tilgang til de forskjellige sensorene på den mobile enheten. Inklusive:
+
+* Bevegelse, som aksellerometere som tar opp all kamerabevegelse under opptaksprosessen - dette fungerer for eksempel som hjelp til å fastslå om en person var i et kjøretøy mens opptaket skjedde.
+* Posisjon, Som GPS-data, kan fastslå ganske eksakt hvor bildet eller videoen ble tatt - denne dataen kan senere plottes i et kart
+* Omgivelse, som termometer, kan senere sjekkes mot klimatisk og temperaturdata fra området
+
+Denne sensordataen lager et digitalt fingeravtrykk av omgivelsene mediafilen ble tatt i, og tillater senere analyse for å bekrefte at ikke bare var mediafilene tatt opp av en gitt enhet på en spesifikk dato, tid og sted, men også sjekk av denne dataen opp mot værforhold i tidsrommet. Den fanger også opp hvilke Wi-Fi-nettverk og Blåtann-enheter som var i nærheten sånn at disse kan brukes for å støtte opp om, og (i fall det er mobiltelefoner) hvile mobiltårn enheten kommuniserte med.
+
+Denne forbedrede metadataen pakkes sammen med mediafilen og begge deler blir kryptert og sjekksummert, en liten tekst som tjener som "digital signatur". Siden denne digitale signaturen er så kort, kan den raskt sendes via e-post eller som SMS til en sikker tjener eller til tredjepart som igjen kan bekrefte at hverken mediafilen eller metadataen på noe vis er tuklet med siden den ble tatt opp. Dette kan være veldig nyttig i fall der brukeren har begrenset tilgang til høyhastighetsforbindelse for data.
+
+For eksempel, hvis en bruker tar opp materiale fra et grisgrendt område i Kenya med begrenset GSM-dekning, men ingen data-tjeneste, kan KameraHullet sende sjekksummen til mediafilen via SMS til en sikker data-tjener. En uke senere, når brukeren kommer tilbake til kontoret der en høyhastighetstilknytning er tilgjengelig, vil KameraHullet fullføre opplastingsprosessen og de nyankomne mediafilene kan sjekkes mot sjekksummen fra felten.
+
+Fremtiden for mobil media som bevisførsel
+
+Vi blir ofte spurt hva det beste kamera for menneskerettsvideo-formål er, og som fotografer vet, er det beste kameraet det du har med deg når du trenger å ta et bilde. Om det er et bilde av et bilkrasj du skal sende til forsikringsselskapet eller krigsforbrytelser i Syria, kommer vanlige bilder i de fleste fall fra vanlige folk som har gjort bruk av mobiltelefoner.
+
+Muligheten til å automatisk verifisere disse videoer og bildene er viktig for menneskerettighetsbeskyttere, journalister, eller vanlige folk. Disse telefonene har som oftest tilleggsinformasjon som kan brukes til å fastslå personen som har tatt bildet eller videoen, men denne samme dataen kan også brukes som viktig bevismateriale for å bekrefte at noe har hendt på angitt tidspunkt og sted. KameraHullet bruker innebygde funksjoner fra mobiltelefoner for å innhente denne dataen, beskytte den, og å tilkjennegi en mekanisme som kan brukes til bruk for verifisering av hvorvidt data har blitt tuklet med. Dette beskytter gangen i overrekkelseskjeden, noe som bidrar til bevisets stilling.
+
+Vårt håp er at KameraHullet såvel som dets funksjoner, som J3M, tas i bruk av vanlige folk og utviklere. Vi ønsker kommersielle tilbydere å bygge inn disse bevisførsels-funksjonene i deres egne produkter og plattformer - som et "vitne"-modus i ditt kamera eller som et tilvalg når når du laster opp eller deler en video på YouTube, Twitter eller Facebook. I fremtiden ønsker vi muligheten til å være et publikumsvitne for alle rundt i verden som befinner seg i tilknytning til noe nyhetsverdig, det være seg en nyhetshendelse eller et menneskerettighetsbrudd.

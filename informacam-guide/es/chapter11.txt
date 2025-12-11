@@ -1,0 +1,41 @@
+# Capítulo 11: Características de seguridad
+
+Este capítulo le dará una visión general de todas las características de seguridad de CameraV y el sistema InformaCam en un único sitio.
+
+## Cifrado del almacenamiento
+
+CameraV contiene una funcionalidad de almacenamiento completamente cifrado, que consta como un único fichero en el almacenamiento del dispositivo. Para esto utiliza el sistema de ficheros virtual IOCipher, y habilita que metadatos y miniaturas sean almacenados directamente en formato cifrado, sin guardarse nunca sin cifrar en el dispositivo. Esto es importante, ya que una vez guarda algo sin cifrar en un dispositivo móvil/celular, lo está abriendo a ser copiado o interceptado por otras aplicaciones, o ser recuperado con técnicas forenses en el futuro. 
+
+Las fotos y vídeos sólo son cifrados si utiliza la funcionalidad integrada de cámara cifrada de CameraV, y no aplicaciones externas de cámara. La importación de audiovisuales no cifrados en el almacenamiento cifrado no es ideal ni está soportado actualmente.
+
+## Bloqueo de la aplicación mediante frase-contraseña
+
+Como parte del almacenamiento cifrado, la aplicación soporta el bloqueo del acceso a si misma y a los datos tras una frase-contraseña. Cuando abra la aplicación por primera vez después de arrancar el dispositivo, se le pedirá que introduzca la frase-contraseña que escogió en la configuración. La aplicación debe entonces permanecer desbloqueada hasta que la bloquee manualmente, o reinicie su dispositivo.
+
+![lockaction.png](images/flows/08img_proof_mode.png)
+
+## Firmado de audiovisuales y metadatos mediante PGP
+
+CameraV incluye capacidades integradas OpenPGP (Pretty Good Privacy) para el firmado y cifrado de datos. Todos los metadatos están firmados por la clave privada del usuario que se genera durante la configuración de la aplicación. Estos datos de firma se incluyen en el documento J3M cuando los exporta. 
+
+Para documentos por entero de metadatos también es posible que sean cifrados para compartirse con un receptor remoto, pero esto requiere que se configure y establezca un "perfil de confianza" específico.
+
+## Generación de hash del audiovisual
+
+Los identificadores criptográficos (hashes) SHA-1 se generan para cada fichero audiovisual, y se incluyen en los documentos J3M exportados. Este hash también se usa como la huella de validación visual (visual fingerprint) del audiovisual para el proceso de certificación.
+
+# Permisos de la aplicación
+
+La aplicación CameraV requiere acceso a un gran conjunto de permisos para tener acceso a todas las funcionalidades de metadatos de sensor y dispositivo requeridas. Debajo está la lista de los permisos primarios requeridos, y una breve explicación acerca de por qué son necesarios.
+
+* Acceso completo a la red: Permite a la aplicación realizar conexiones de cualquier tipo, incluyendo acceso a servidores remotos
+* Localización aproximada y precisa: Permite a la aplicación obtener su ubicación a través de varios medios, incluyendo el uso del GPS y características de localización basada-en-red
+* Leer estado del teléfono e identidad: Permite a la aplicación acceder al identificador de su dispositivo, lo que ayuda a crear el identificador único asociado con sus ficheros audiovisuales. Esto es parte de la evidencia de que vienen realmente de su dispositivo. Sin embargo, estos datos nunca son compartidos públicamente, así que su identidad real sólo se comparte si usted lo elige.
+* Recoger aplicaciones en ejecución: Permite a la aplicación recoger información acerca de las aplicaciones actualmente o recientemente en ejecución. Esto se usa como contramedida contra aplicaciones de terceros que pueden estar falsificando la información de los metadatos del sensor. 
+* Acceder a la configuración de Bluetooth: Esto permite a la aplicación activar y administrar su conexión Bluetooth. Esto se usa para reunir datos acerca de los dispositivos presentes en su área, y añadir esa información a los metadatos del sensor.
+* Conectar/Desconectar de la LAN inalámbrica (WLAN): Tal como dice, esto permite a la aplicación administrar las conexiones WiFi y WLAN, que como con el Bluetooth, se usan para reunir datos acerca de las redes en su entorno inmediato, como parte de los metadatos del sensor. 
+* Controlar vibración: Tal como dice, aunque no estamos 100% seguros de por qué necesitamos esto, ¡para ser honestos!
+* Buscar cuentas en el dispositivo: Permite a la aplicación obtener la lista de cuentas conocida por el teléfono. Esto es utilizado por la aplicación si quiere compartir mediante Google Drive, de forma que podamos ver qué cuentas de Google están disponibles y activas.
+* Modificar o borrar contenidos de la tarjeta SD: Esto se utiliza para leer y escribir datos en el almacenamiento externo de la tarjeta SD. Únicamente a los audiovisuales o ficheros relacionados con CameraV es a todo lo que se accede o elimina.
+* Grabar audio / Tomar fotos o vídeos: Auto-explicativa... ¡es una aplicación de cámara después de todo!
+

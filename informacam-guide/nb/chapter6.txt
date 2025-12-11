@@ -1,0 +1,19 @@
+# Kapittel 6: Deling og bruk av metadata
+
+Dette kapitelet viser deg hvordan du deler sensor- og verifiserings- metadata tilknyttet hvert bilde og video du har tatt opp med programmet.
+
+## Hvordan dele metadata
+
+Fra mediavisningen, kan du velge 'Del', dernest 'Del metadata' fra den andre menyen- Dette vil generere et klartekstdokument (mer om det nedenfor), som du kan dele med hvilket som helst program på din enhet, gitt at de kan ta imot slikt innhold.
+
+Du kan også velge 'Del metadata' fra gallerivisning, og dele flerfoldige metadata-dokumenter gruppevis, ved bruk av flervalgsmulighetene.
+
+## Hva er metadata?
+
+Metadataen du deler fra CameraV er en ansamling sensor og nettverks-data som har blit tatt opp samtidig med bilde eller video. Det er organisert og delt ved bruk av Javascript Object Notation (JSON) format, mer spesifikt som JSON Mobile Media Metadata, eller J3M (uttalt "Gémm"). J3M-filen er vanlig tekst, i et format leselig for mennesker, inneholdende flere forskjellige gruppenavn=verdigrupper, inndelt i krøllparenteser som {navn: verdi} eller {navn { navn0: verdi0, navn1: verdi1}, osv.
+
+![metadata.png](images/flows/06img_metadata.png)
+
+## Hvorfor skulle jeg ønske å dele det?
+
+Deling av metadata lar deg knytte informasjon som har sammenheng med mediafilene til selve filen. Dette kan gi mening hvis du har lav båndbredde, eller hvis du bare ønsker å dele hvor, når og hva du har lagret, og ikke innholdet. Metadataen inneholder også kryptografiske signaturer over selve dataen og mediafila. Noe som senere kan bevise dens opphav. Hvis mottakeren av metadataen senere mottar selve mediafia, kan de jamføre den mot de unike signaturene i metadataen for å forsikre seg om at fila ikke har blitt tuklet med underveis.

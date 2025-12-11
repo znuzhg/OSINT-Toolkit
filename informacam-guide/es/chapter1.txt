@@ -1,0 +1,50 @@
+# Capítulo 1: Guía de inicio rápido
+
+## Iniciación a los audiovisuales asegurados y verificados con el móvil/celular
+
+Este documento entrará en mayor detalle acerca del concepto de InformaCam al completo más tarde, pero por ahora quisimos iniciarle en algunas habilidades sencillas útiles. Usando Google Play o FDroid.org, tendrá que instalar la aplicación CameraV en su teléfono Android, que deberá correr un SO Android versión 4.0 o superior.
+
+## 3 Cosas que puede hacer rápidamente con CameraV
+
+1) Tomar fotografías o vídeo con captura de metadatos con sensor sincronizado para su uso posterior en verificación, análisis, prueba, u otros propósitos forenses.
+
+2) Certificar fotos y vídeos capturados al compartir la identificación única y los metadatos de los sensores a través de correo electrónico, SMS o medios sociales.
+
+3) Compartir fotos y vídeos de forma privada o pública con los metadatos de sensores incrustados en los audiovisuales, para verificación y uso posterior.
+
+## Tomar una foto o vídeo con metadatos de sensores
+
+Los sensores de CameraV se activan automáticamente cuando inicia la captura. Opcionalmente puede habilitar los servicios de localización, Bluetooth y Wi-Fi en su Configuración de Android para permitir que la aplicación utilice esos sensores.
+
+### Habilitar sensores
+
+- Usted controla si se usan el Wi-Fi, el Bluetooth y el GPS
+- Para localización, puede controlar el tipo de servicio de localización
+- Para deshabilitar los sensores de red móvil/celular, ponga el teléfono en modo avión o "vuelo"
+
+### Ver fotos y vídeo en la Galeria
+
+El botón de Galería abre una pantalla con múltiples miniaturas. Pulse sobre una miniatura para abrir la vista detallada.
+
+![views](images/flows/05.2img_main_views.png)
+
+Icono de marca de verificación para selección y borrado múltiple.
+
+
+## Certificar fotos y vídeos capturados
+
+Puede generar un identificador único de huella de validación visual (visual fingerprint), básicamente un código único para cada fichero audiovisual capturado. Luego puede compartir este código como un mensaje corto que puede compartir a través de SMS, correo electrónico, o más públicamente en medios sociales.
+
+![notarizesms.png](images/notarizesms.png)
+
+## Compartir fotos, vídeos y metadatos de sensores 
+
+## Opciones de compartición
+
+Opciones de COMPARTICIÓN:
+Compartir audiovisuales
+Compartir metadatos
+Certificar
+
+'Compartir metadatos' sólo comparte los metadatos como texto no cifrado JSON
+Certificar: Crea una identificación única para audiovisuales y un enlace a una página con el audiovisual en un alojamiento seguro

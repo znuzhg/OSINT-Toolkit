@@ -1,0 +1,23 @@
+# Kapitel 9: Bruksmønster
+
+Dette kapittelet geleider deg gjennom en del plausible scenarioer der programmet kan være nyttig, og de riktige stegene for å dra det hele i havn.
+
+## For å sikre fotografisk bevis for en hendelse
+
+InformaCam-systemet, og spesielt CameraV-programmet, er velegnet til bruk for opptak av fotografisk bevis for hvilken som helst hendelse. Alt fra skadene etter et bilkræsj, til eiendelstap etter en naturkatastrofe. Det kan også brukes til å dokumentere vold mellom borgere, mellom politifolk eller militære og borgere. 
+
+Målet i disse tilfelle er å fange en tilstand, på et gitt tidspunkt, for så å dele media-beviset med en instans som kan bruke det i rettsøyemed eller til hjelp med økonomisk erstatning. Hvis dette er tilfellet, vil det krypterte lagringsområdet og bekreftelsesfunksjonene hjelpe i bevisførselsøyemed, siden det beviselig er det som har blitt tatt opp som har funnet sted, og at det samsvarer med rettsbruddet.
+
+Et sekundært mål er for å spre kunnskap, meninger og bevissthet. Bruk av CameraV i disse tilfellene hjelper deg å styrke din sak, å gi bevis til et større publikum, om at det de ser stemmer, i sin opprinnelige og umodifiserte form.
+
+## Hvordan ta opp en video av øyevitnebevitning
+
+Ved mange krigsforbrytelser, blir bevis innhentet etter at hendelsen har funnet sted, gjennom øyevitneforklaringer fra offer, eller andre med kunnskap om hendelsen. Det er av ytterste viktighet at disse intervjuene beskytes, bare tilgjengelig for dem som trenger å se dem.
+
+## Hvordan dokumentere en protestmarsj eller offentlig ansamling  
+
+Det er vanlig å se hundrevis av telefoner i folkemengden, som dokumenterer det de kan se, under store offentlige ansamlinger.
+
+## Hvordan legge et "Data-journalistikk"-lag til din sak
+
+Sensor-metadata tatt opp av CameraV muliggjør et fascinerende lag med verdens-data og bindeleddsinformasjon som vanligvis er usynlig for oss.

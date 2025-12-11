@@ -1,0 +1,29 @@
+# Capítulo 7: Certificar sus fotos y vídeos
+
+Este capítulo le mostrará cómo certificar las fotos y vídeos capturados a través de la aplicación, ¡para probar que existen y que le pertenecen!
+
+## ¿Qué es la certificación?
+
+Tradicionalmente, el proceso de hacer que un notario firme un documento prueba que usted es quien dice ser, o que algún documento ha sido verificado por una autoridad de confianza. En el caso de InformaCam y la aplicación CameraV, el proceso de certificación es clave para usar los audiovisuales como prueba de algo. 
+
+La certificación también es muy útil porque sólo requiere que comparta un mensaje corto muy pequeño, que puede enviarse fácilmente mediante un mensaje de texto SMS o algo similar. Compartir una certificación no requiere una conexión a Internet completa en su dispositivo 
+
+![notarizenote.png](images/flows/07img_notarize.png)
+
+## ¿Qué ocurre cuando certifico un audiovisual?
+
+Cuando elige la opción 'Certificar', se genera un mensaje corto que incluye el identificador único, o "fingerprint" (huella de validación), del fichero audiovisual. Este mensaje luego puede compartirse mediante cualquiera de las aplicaciones de su dispositivo que le permitan compartir mensajes, como SMS, correo electrónico, Twitter, Facebook, u otras aplicaciones de ese tipo.
+
+![notarizesms.png](images/flows/00.2img_notarize.png)
+
+## Certificación pública frente a privada
+
+Puede escoger difundir el mensaje de certificación públicamente, lo cual crearía entonces una marca de tiempo pública que constataría que este audiovisual existió en este estado específico, para que todos lo vean.
+
+También puede escoger compartir el mensaje de certificación de forma privada, lo cual se puede usar entonces por el receptor para comparar con el audiovisual o los metadatos cuando reciba el fichero en una fecha posterior.
+
+
+
+
+
+

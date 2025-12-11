@@ -1,0 +1,23 @@
+changelog:
+  categories:
+    - title: Breaking changes 🧨
+      labels:
+        - breaking
+    - title: Security 🚨
+      labels: 
+        - security-impact
+    - title: Enhancements 📈
+      labels:
+        - enhancement
+    - title: Bug fixes 🐛
+      labels:
+        - bug
+    - title: New feeds
+      labels:
+        - tasks:feed
+    - title: New analytics
+      labels:
+        - tasks:analytics
+    - title: Other Changes
+      labels:
+        - "*"

@@ -1,0 +1,29 @@
+# Kapittel 7: Attestering av dine bilder og videoer
+
+Dette kapittelet viser deg hvordan du attesterer bilder og videoer tatt opp med programmet, for å vise deg at de faktisk finnes, og tilhører deg.
+
+## Hva er attestering?
+
+I tradisjonell forstand er det prosessen der en fullmektig signerer et dokument, hvis gyldighet beviser at du er den du utgir deg for å være, eller at et dokument har blitt godkjent av en betrodd instans. Dette er tilfellet med KameraHullet- og CameraV -programmet. Attesteringsprosessen er nøkkelen til bruk av mediafilene som bevisførsel. 
+
+Attestering er også veldig nyttig, fordi de bare krever at du deler en veldig liten, kort melding, som enkelt kan sendes via noe ala SMS. Det kreves ikke full internettilgang på din enhet for å dele en attestering.
+
+![notarizenote.png](images/flows/07img_notarize.png)
+
+## Hva skjer når jeg attesterer media?
+
+Når du bruker 'Attester' vil en kort melding bli generert, inneholdende unik identifikator, "fingeravtrykket" til mediafila. Denne meldingen kan kan deles med vilkårlig program, forutsett at dek dele korte meldinger, som SMS, e-post, mikroblogg eller sosiale media.
+
+![notarizesms.png](images/flows/00.2img_notarize.png)
+
+## Offentlig eller privat attestering
+
+Du kan velge å offentliggjøre attesterings-meldingen, noe som i tur betyr at du har et offentlig tidsstempel på at denne mediafilen eksisterte i en gitt tilstand, som alle kan se.
+
+Du kan velge å dele attesteringsmeldingen privat, som så kan brukes av mottakeren for å jamføre mot mediafilen eller metadataen når de så senere mottar det ene, det andre, eller begge deler.
+
+
+
+
+
+

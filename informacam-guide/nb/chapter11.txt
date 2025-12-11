@@ -1,0 +1,41 @@
+# Kapittel 11: Sikkerhetsfunksjoner
+
+Dette kapittelet gir en samlet oversikt over alle sikkerhetsfunksjonene tii CameraV og InformaCam
+
+## Kryptering av lagringsområde
+
+CameraV inneholder en helt kryptert lagringsfunksjonalitet, som for filsystemet ser ut til å være en enkelt fil. Til dette brukes IOCipher virtuelt filsystem, og det betyr at data og metadata kan lagres i kryptert format, uten å noen gang ha blitt lagret åpenlyst på enheten. Dette er viktig, siden når du har lagret noe uten kryptering på en mobil enhet, er det gjenstand for mulig avlytting av andre programmer, eller å bli datateknisk gjenopprettet i fremtiden. 
+
+Bilder og video blir bare kryptert hvis du bruker CameraV's innebygde kamerafunksjon, og ikke eksterne kameraprogram. Import av ukryptert media til krypert lagringsmedium er ikke støttet for øyeblikket, og heller ikke ideelt.
+
+## Låsing av program med passord
+
+Som en del av den krypterte lagringen støtter programmet låsing av tilgang til dataen bak et passord. Når du først har åpnet programmet etter at enheten starter opp, kreves det et passord som du velger ved oppsett. Programmet burde forbli ulåst til neste gang du manuelt låser det opp, eller starter enheten på ny.
+
+![lockaction.png](images/flows/08img_proof_mode.png)
+
+## Signering av media og metadata med PGP
+
+CameraV innheolder en innebygd OpenPGP (Pretty Good Privacy/Ganske Godt Personvern) muligheter for signering og kryptering av data. All metadata er signert av den private nøkkelen til brukeren, generert under oppsettet av programmet. Denne signatur-dataen er inkludert i J3M-dokumentet når du eksporterer det. 
+
+Det er også mulig å kryptere hele metadata-dokumenter for deling med en tredjepart, men dette krever en spesifikk "betrodd profil" som må være innstilt og oppsatt.
+
+## Generering av sjekksum for media
+
+SHA-1 sjekksummer blir generert for hver fil, og er inkludert i J3M-dokumentene. Denne sjekksummen blir også brukt som visuelt media-fingeravtrykk for attesteringsprosessen.
+
+# Programtilganger
+
+CameraV-prgrammet krever mange forskjellige programtilganger, for å få tilgang til all sensor og metadatafunksjonalitet på enheten. Under ser du de første hovedtilgangene som kreves, og en kort forklaring på hvorfor.
+
+* Full nettverkstilgang: Lar programmet få tilgang til alle typer nettverkstilganger, inkludert tilgang til fjerntjenere
+* Omentrentlig og presis plassering: Lar programmet innhente plassering på forskjellige vis, inkludert GPS og nettverksbaserte lokaliseringsfunksjoner
+* Lese telefonstatus og identitet: Lar programmet få tilgang til identifikasjon for din enhet, noe som hjelper til med generering av unik identifikator tilknyttet dine mediafiler. Dette er en del av bevisførselen på at filene faktisk kom fra din enhet. Dog er denne dataen aldri delt offentlig, så din egentlige identitet blir bare delt hvis du velger det.
+* Innhent liste over kjørende programmer: Lar programmet innhente informasjon om kjørende og nylig kjørte programmer. Dette brukt som et mottiltak for å forhindre tredjepartsprogrammer fra å gi misvisende metadata ved å tukle med sensorer. 
+* Tilgang til Blåtann-innstillinger: Dette lar programmet aktivere og bruke din Blåtann-tilgang. Dette blir brukt for å innhente liste over Blåtann-enheter i ditt område, og lagt til sensor-metadataen.
+* Koble til/fra Trådløst nettverk (WLAN): Dette lar programmet behandle Wi-Fi og WLAN-tilkoblinger, som likt Blåtann, blir brukt til å innhente informasjon over nettverk i din umiddelbare nærhet, som en del av sensor-metadataen. 
+* Kontroller vibrering. For å være ærlig kan det ikke med 100% sikkerhet fastslås hvorfor dette er nødvedig.
+* Finn kontoer på enheten: En liste over telefonens kjente kontoer er brukt for å kunne tilby deling med nevnte.
+* Modifiser eller slett innhold på SD-kort: Dette er brukt til å lese eller skrive data til SD-kort for ekstern lagring. Bare mediafiler tilknyttet CameraV blir noensinne lest eller fjernet.
+* Ta opp lyd / Ta bilder og video: Et kameraprogram trenger tilgang til kameraene. Lyd brukes til lydopptak.
+

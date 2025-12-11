@@ -1,0 +1,23 @@
+# Capítulo 9: Escenarios de uso
+
+Este capítulo le llevará a través de unos pocos escenarios plausibles distintos donde esta aplicación podría usarse, y los pasos correctos para lograr que eso suceda.
+
+## Capturar evidencia fotográfica de un incidente
+
+El sistema InformaCam, y específicamente la aplicación CameraV, está bien ajustada para capturar evidencia fotográfica de un incidente de cualquier naturaleza. Esto podría ir desde las consecuencias de un accidente de coche, al daño sobre las propiedades durante un desastre natural. También podría usarse para documentar violencia entre ciudadanos, o entre policía o fuerzas militares y ciudadanos. 
+
+El objetivo en cualquiera de estos casos es capturar el estado de alguna cosa, en un determinado instante, y luego compartir esa evidencia audiovisual con una autoridad que pueda usarla para la aplicación de justicia o el establecimiento de una compensación monetaria. En este caso, el almacenamiento cifrado y las características de verificación ayudan a probar que la evidencia no fue manipulada, y que fue capturada en el momento y lugar coincidente con el crimen.
+
+Un objetivo secundario podria ser para apoyo y alerta. Usar CameraV en estos casos ayuda a refrendar su caso, al proporcionar pruebas a su más amplia audiencia pública de que lo que están viendo es cierto, auténtico y no alterado.
+
+## Grabar un vídeo con el testimonio de un testigo
+
+En muchos crímenes de guerra, la evidencia se reúne después de sucedido el hecho a través de entrevistas con testimonios de víctimas, testigos, u otros con conocimiento del incidente. Es de primordial importancia que estas entrevistas estén protegidas, sólo accesibles para aquellos que precisen acceso.
+
+## Documentar una marcha de protesta y una reunión pública  
+
+Es una visión común ver cientos de teléfonos emergiendo de entre la múltitud, documentando lo que sea que puedan ver durante una larga reunión pública.
+
+## Añadir una capa de "Periodisomo de datos" a sus historia
+
+Los metadatos del sensor capturados por CameraV proporcionan una fascinante capa adicional de datos del mundo-real y de contexto, que normalmente son invisibles para el ojo por si sólo.
